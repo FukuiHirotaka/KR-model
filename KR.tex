@@ -1,0 +1,140 @@
+\documentclass[11pt,a4paper]{article}
+%
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{ascmac}
+\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{amsfonts, latexsym, mathtools}
+\numberwithin{equation}{section}
+%
+\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+\newcommand{\divergence}{\mathrm{div}\,}  %ダイバージェンス
+\newcommand{\grad}{\mathrm{grad}\,}  %グラディエント
+\newcommand{\rot}{\mathrm{rot}\,}  %ローテーション
+%
+\theoremstyle{definition}
+    \newtheorem{dfn}{Definition}[section]
+    \newtheorem{prop}[dfn]{Proposition}
+    \newtheorem{lem}[dfn]{Lemma}
+    \newtheorem{thm}[dfn]{Theorem}
+    \newtheorem{cor}[dfn]{Corollary}
+    \newtheorem{rem}[dfn]{Remark}
+    \newtheorem{fact}[dfn]{Fact}
+    \renewcommand{\qedsymbol}{$\blacksquare$}
+%
+\title{KR model}
+\author{Hirotaka Fukui \thanks{Kobe University, Graduate School of Economics, Doctoral Student. 227e127e@gsuite.kobe-u.ac.jp}}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+%
+\section{A two-sector small open economy model}
+The model includes a nontraded final goods sector (the $f$) and a tradable primary goods sector (the $p$).The model presented in~\citet{KOSE200155} is same as~\citet{kose_explaining_2002}.
+%
+\subsection{Technology}
+We begin by describing the technology. There are two sectors in the economy: a non-traded final sector and a primary (commodity)- producing sector. The final good is produced by combining capital $ k^{f}_{t}$, intermediate inputs $v_{t}$, and labor $ n^{f}_{t}$. It can be consumed and invested but is non-traded. The production function in the final good sector is 
+\begin{equation}
+\label{eq_kr_y_f}
+y^{f}_{t}=z^{f}_{t}(n^{f}_{t})^{\alpha}\left[s(k^{f}_{t})^{-u}+(1-s)v_{t}^{-u}\right]^{\frac{-(1-\alpha)}{u}},~0<\alpha, s, u<1.
+\end{equation}
+Primary goods can be produced domestically using capital $k^{p}_{t}$, labor $n^{p}_{t}$, and land $L^{p}$. The land $L^{p}$ is assumed to be inelastically supplied. The production function in the primary sector is 
+\begin{equation}
+\label{eq_kr_y_p}
+y^{p}_{t}=z^{p}_{t}(n^{p}_{t})^{\theta_{1}}(k^{p}_{t})^{\theta_{2}}(L^{p})^{1-\theta_{1}-\theta_{2}},~0<\theta_{1}, \theta_{2}<1. 
+\end{equation}
+In the production functions, $z^{f}_{t}$ and $z^{p}_{t}$ capture total factor productivities, which are exogenous and assumed to be stationary. We assume that $z^{f}_{t}$ and $z^{p}_{t}$ follow stochastic processes, which will be specified further below. In the production functions, parameters $\alpha$, $s$, $u$, $\theta_{1}$, $\theta_{2}$ are the share of non-traded output earned by labor, the relative weight of capital, the elasticity of substitution between intermediate inputs and capital, the labor and capital income shares, respectively. 
+\par
+Capital depreciates at a rate $\sigma$, and the law of motion of capital is modeled as
+\begin{equation}
+\label{eq_kr_i}
+k^{j}_{t+1}=(1-\delta)k^{j}_{t}+\phi_{j}\left(\frac{i^{j}_{t}}{k^{j}_{t}}\right)k^{j}_{t},~j=f, p.
+\end{equation}
+Following to~\citet{DECORDOBA200049}, we specify adjustment cost function $\phi_{j}\left(\frac{i^{j}_{t}}{k^{j}_{t}}\right)k^{j}_{t},~j=f, p$ as the simple, one parameter function
+\begin{equation}
+\phi_{j}\left(\frac{i^{j}_{t}}{k^{j}_{t}}\right)=\frac{1}{\zeta_{j}}\Biggl[\delta^{1-\zeta_{j}}\Bigl(\frac{i^{j}_{t}}{k^{j}_{t}}\Bigr)^{\zeta_{j}}-(1-\zeta_{j})\delta\Biggr]
+\end{equation}
+We define $\zeta_{j}$ to satisfy $\frac{1}{1-\zeta_{j}}=-\frac{\frac{\phi'}{\phi''}}{(\frac{i_{j}}{k_{j}})},~j=f, p$. In~\citet{KOSE200155}, they use $\eta_{j}$ as a parameter of the elasticity of the marginal adjustment cost function. The relation between $\eta_{j}$ and $\zeta_{j}$ is $\frac{1}{1-\zeta_{j}}=\eta_{j}$.
+%Household
+\subsection{Households}
+The model economy is populated by a representative household with preferences described by the utility function
+\begin{equation}
+U(c, l)=\mathbb{E}_{0}\left\{\sum_{t=0}^{\infty} \beta^{t} \frac{[u(c_{t},l_{t})-1]}{1-\sigma}\right\},
+\end{equation}
+where the parameter $\beta >0$ denotes the subjective discount factor of the household and $\sigma>0$ is the risk aversion parameter. We assume that the period utility function $u$ has the form
+\begin{equation}
+u(c_{t},l_{t})=(c_{t}-\psi(1-l_{t})^{\upsilon})^{1-\sigma},
+\end{equation}
+$\upsilon>1$ governs the intertemporal elasticity of substitution in labor supply, and $\psi >0$ is a parameter used to set the steady state level of labor hours. The household has a fixed time endowment normalized to 1 and faces the following labor-leisure allocation constraint
+\begin{equation}
+\label{eq_kr_rc_lr}
+l_{t}+n^{f}_{t}+n^{p}_{t}=1.
+\end{equation}
+The resource constraint for the final goods sector is given by
+\begin{equation}
+\label{eq_kr_rc_f}
+c_{t}+i^{f}_{t}=y^{f}_{t}.
+\end{equation}
+The resource constraint of the primary sector is given by
+\begin{equation}
+\label{eq_kr_rc_p}
+p^{k}_{t}i^{p}_{t}+p^{v}_{t}+nx_{t}=y^{p}_{t},
+\end{equation}
+where $nx_{t}$ represents the balance of trade.
+\subsection{Optimality conditions}
+The representative household's maximization problem is given as follows:
+\begin{align*}
+\max &~U(c,l)=\mathbb{E}_{0}\left\{\sum_{t=0}^{\infty} \beta^{t} \frac{[(c_{t}-\psi(1-l_{t})^{\upsilon})^{1-\sigma}-1]}{1-\sigma}\right\} \\
+s.t. &~
+\left\{
+    \begin{aligned}
+    & c_{t}+i_{t}^{f} = y_{t}^{f} \\
+    & p_{t}^{k}i_{t}^{p}+p_{t}^{\nu}\nu_{t}+A_{t+1} = y^{p}_{t}+(1+r_{t})A_{t} \\
+    & k_{t+1}^{f}=(1-\delta)k_{t}^{f}+\frac{1}{\zeta}\left[\delta^{1-\zeta}(\frac{i^{f}_{t}}{k^{f}_{t}})^{\zeta}-(1-\zeta)\delta\right]k_{t}^{f} \\
+    & k_{t+1}^{p}=(1-\delta)k_{t}^{p}+\frac{1}{\zeta}\left[\delta^{1-\zeta}(\frac{i^{p}_{t}}{k^{p}_{t}})^{\zeta}-(1-\zeta)\delta\right]k_{t}^{p}
+    \end{aligned}
+\right.
+\end{align*}
+Setting up the dynamic Lagrangian
+\begin{align}
+\begin{split}
+\mathcal{L}= & \sum_{t=0}^{\infty}\beta^{t}\Biggl\{\frac{[(c_{t}-\psi(1-l_{t})^{\upsilon})^{1-\sigma}-1]}{1-\sigma} \\
+& +\lambda^{f}_{t}(y_{t}^{f}-c_{t}-i_{t}^{f}) \\
+& +\lambda^{p}_{t}(y^{p}_{t}+(1+r_{t})A_{t}-p_{t}^{k}i_{t}^{p}-p_{t}^{\nu}\nu_{t}-A_{t+1} ) \\
+& +\gamma^{f}_{t}(k_{t+1}^{f}-(1-\delta)k_{t}^{f}-\frac{1}{\zeta}\left[\delta^{1-\zeta}(\frac{i^{f}_{t}}{k^{f}_{t}})^{\zeta}-(1-\zeta)\delta\right]k_{t}^{f}) \\
+& +\gamma^{p}_{t}(k_{t+1}^{p}-(1-\delta)k_{t}^{p}-\frac{1}{\zeta}\left[\delta^{1-\zeta}(\frac{i^{p}_{t}}{k^{p}_{t}})^{\zeta}-(1-\zeta)\delta\right]k_{t}^{f})\Biggr\},
+\end{split}
+\end{align}
+the first-order conditions with respect to $c_{t}$, $l_{t}$, $i^{f}_{t}$, $i^{p}_{t}$, $\nu_{t}$, $n^{p}_{t}$, $k^{f}_{t+1}$, $k^{p}_{t+1}$, $A_{t+1}$ are derived as follows:
+\begin{align}
+%ct
+& (c_{t}-\psi(1-l_{t})^{\upsilon})^{-\sigma}=\lambda^{f}_{t} \\
+%lt
+& (c_{t}-\psi(1-l_{t})^{\upsilon})^{-\sigma}\psi\upsilon(1-l_{t})^{\upsilon-1}=\lambda^{f}_{t}\alpha z_{t}^{f}(n^{f}_{t})^{\alpha-1}\left[s(k^{f}_{t})^{-u}+(1-s)\nu_{t}^{-u}\right]^{\frac{-(1-\alpha)}{u}} \\
+%ift
+& -\gamma^{f}_{t}\delta^{1-\zeta_{f}}(\frac{i_{t}^{f}}{k^{f}_{t}})^{\zeta_{f}-1}k^{f}_{t}=\lambda^{f}_{t} \\
+%ipt
+& -\gamma^{p}_{t}\delta^{1-\zeta_{p}}(\frac{i_{t}^{p}}{k^{p}_{t}})^{\zeta_{p}-1}k_{t}^{p}=\lambda^{p}_{t}p_{t}^{k} \\
+%\vt
+& \lambda^{f}_{t}(1-\alpha)(1-s)z^{f}_{t}(n^{f}_{t})^{\alpha}\left[s(k^{f}_{t})^{-u}+(1-s)\nu_{t}^{-u}\right]^{\frac{-(1-\alpha)}{u}-1}\nu_{t}^{-u-1}=\lambda^{p}_{t}p^{\nu}_{t} \\
+%npt
+& \lambda^{f}_{t}z^{f}_{t}\alpha(n^{f}_{t})^{\alpha-1}\left[s(k^{f}_{t})^{-u}+(1-s)\nu_{t}^{-u}\right]^{\frac{-(1-\alpha)}{u}}=\lambda^{p}_{t}\theta_{1}z^{p}_{t}(n_{t}^{p})^{\theta_{1}-1}(k_{t}^{p})^{\theta_{2}}(L^{p})^{1-\theta_{1}-\theta_{2}} \\
+%kft+1
+& \gamma^{f}_{t}=\beta\mathbb{E}_{t}\Biggl[\lambda^{f}_{t+1}s(1-\alpha)z^{f}_{t+1}(n^{f}_{t})^{\alpha}\left[s(k^{f}_{t+1})^{-u}+(1-s)\nu_{t+1}^{-u}\right]^{\frac{-(1-\alpha)}{u}-1}(k^{f}_{t+1})^{-u-1} \nonumber \\
+& +\gamma^{f}_{t+1}\Bigl\{(1-\delta)+\delta^{1-\zeta_{f}}\biggl(\frac{i_{t+1}^{f}}{k^{f}_{t+1}}\biggr)^{\zeta_{f}-1}\frac{i^{f}_{t+1}}{k^{f}_{t+1}}+\frac{1}{\zeta}[\delta^{1-\zeta_{f}}\biggl(\frac{i_{t+1}^{f}}{k^{f}_{t+1}}\biggr)^{\zeta_{f}}-(1-\zeta_{f})\delta]\Bigr\}\Biggr] \\
+%kpt+1
+& \gamma^{p}_{t}=\beta\mathbb{E}_{t}\Biggl[\lambda^{p}_{t+1}\theta_{2}z^{p}_{t+1}(n_{t+1}^{p})^{\theta_{1}}(k^{p}_{t+1})^{\theta_{2}-1}(L^{p})^{1-\theta_{1}-\theta_{2}} \nonumber \\
+& +\gamma^{p}_{t+1}\Bigl\{(1-\delta)+\delta^{1-\zeta_{p}}\biggl(\frac{i_{t+1}^{p}}{k^{p}_{t+1}}\biggr)^{\zeta_{p}-1}\frac{i^{p}_{t+1}}{k^{p}_{t+1}}+\frac{1}{\zeta}[\delta^{1-\zeta_{p}}\biggl(\frac{i_{t+1}^{p}}{k^{p}_{t+1}}\biggr)^{\zeta_{p}}-(1-\zeta_{p})\delta]\Bigr\}\Biggr] \\
+%At+1
+& \lambda^{p}_{t}=\beta\mathbb{E}_{t}[\lambda^{p}_{t+1}(1+r_{t+1})]
+\end{align}
+\bibliographystyle{chicago}
+\bibliography{KR}
+\end{document}
