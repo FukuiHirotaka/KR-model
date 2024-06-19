@@ -58,15 +58,19 @@ gamf(-1)=BETA*lamf*S*(1-ALPHA)*zf*nf^(ALPHA)*(S*kf^(-U)+(1-S)*v^(-U))^((-(1-ALPH
 gamp(-1)=BETA*lamp*THETA2*zp*np^(THETA1)*kp^(THETA2-1)*Lp^(1-THETA1-THETA2)+BETA*gamp*((1-DELTA)+DELTA^(1-ZETAP)*(ip/kp)^(ZETAP-1)*(ip/kp)+(1/ZETAP)*(DELTA^(1-ZETAP)*(ip/kp)^(ZETAP)-(1-ZETAP)*DELTA));
 lamp(-1)=BETA*lamp*(1+r);
 
-%Additional Equations
+%Technology
 yf=zf*nf^(ALPHA)*(S*kf^(-U)+(1-S)*v^(-U))^(-(1-ALPHA)/U);
 yp=zp*np^(THETA1)*kp^(THETA2)*Lp^(1-THETA1-THETA2);
+
+%Resource Constraint
 kf=(1-DELTA)*kf(-1)+(1/ZETAF)*(DELTA^(1-ZETAF)*(if(-1)/kf(-1))^(ZETAF)-(1-ZETAF)*DELTA)*kf(-1);
 kp=(1-DELTA)*kp(-1)+(1/ZETAP)*(DELTA^(1-ZETAP)*(ip(-1)/kp(-1))^(ZETAP)-(1-ZETAP)*DELTA)*kp(-1);
 c+if=yf;
 nx=yp-pk*ip-pv*v;
 l+nf+np=1;
 A=nx(-1)+A(-1)*(1+r(-1));
+
+%Additional Equations
 y=yf+yp;
 n=nf+np;
 i=if+ip;
